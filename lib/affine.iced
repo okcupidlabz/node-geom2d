@@ -60,11 +60,15 @@ class affine2d
 
   copy: -> new affine2d @
 
-  transform: (v0, v1) ->
+  transformPair: (v0, v1) ->
     # returns a pair array
     t0 = @m00 * v0 + @m01 * v1 + @v0
     t1 = @m10 * v0 + @m11 * v1 + @v1
     [t0, t1]
+
+  transformVector: (v) ->
+    # takes a vector class obj as a param
+    v.transform @
 
   leftComposeWith: (a) ->
     ###

@@ -5,21 +5,23 @@ vector  = require '../lib/vector'
 #
 # TODO: Put some good tests in here
 #
-a1 = new affine.affine2d() 
-a2 = new affine.rotation  Math.PI / 4
-a3 = new affine.rotation -Math.PI / 4
-a4 = affine.compose a2, a3
+
+rot_left  = new affine.rotation  Math.PI / 4
+rot_right = new affine.rotation -Math.PI / 4
+go_big    = new affine.scaling   2,   4
+go_small  = new affine.scaling   0.5, 0.25
+
+
+do_nothing = rot_left.copy()
+do_nothing.rightComposeWith rot_right
+do_nothing.rightComposeWith go_big
+do_nothing.rightComposeWith go_small
 
 square = polygon.factory.unitSquare()
 
-console.log a1.transformPair 0.5, 0.5
-console.log a2.transformPair 0.5, 0.5
-console.log a4.transformPair 0.5, 0.5
+console.log "1. Square before\n--------------"
+console.log square
 
-
-a1.rightComposeWith a2
-console.log a1
-console.log "--"
-
-square.transform a2
+console.log "2. Square after \n--------------"
+square.transform do_nothing
 console.log square

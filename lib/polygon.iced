@@ -55,7 +55,9 @@ exports.factory =
     ]
   unitCircleApprox: (num) ->
     radian_increment = 2.0 * Math.PI / num
+    radians = 0
     p = new polygon()
     for i in [0...num]
-      p.addVertex new vector(0.5 * Math.Cos(radians), 0.5 * Math.Sin(radians))
+      radians += radian_increment
+      p.addVertex new vector.vector(0.5 * Math.cos(radians), 0.5 * Math.sin(radians))
     p

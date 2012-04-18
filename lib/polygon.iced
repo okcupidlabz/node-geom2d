@@ -24,24 +24,28 @@ class polygon
     for v,i in @vertices
       if (i is 0) or v.v0 < best
         best = v.v0
+    best
 
   getXMax: ->
     best = 0
     for v,i in @vertices
       if (i is 0) or v.v0 > best
         best = v.v0
+    best
 
   getYMin: ->
     best = 0
     for v,i in @vertices
       if (i is 0) or v.v1 < best
         best = v.v1
+    best
 
   getYMax: ->
     best = 0
     for v,i in @vertices
       if (i is 0) or v.v1 > best
         best = v.v1
+    best
 
 exports.polygon = polygon
 

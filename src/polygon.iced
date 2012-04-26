@@ -15,7 +15,7 @@ class polygon
   addVertex: (v) -> @vertices.push v
 
   transform: (aff) ->
-    aff.transform v for v in @vertices
+    aff.transformVec v for v in @vertices
 
   getXMin: ->
     best = 0

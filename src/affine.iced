@@ -1,6 +1,6 @@
 
 #
-# Chris Coyne, 2012. You can do what you like this with this file. Sell, burn, mutate, copy.
+# OkCupid, Chris Coyne, 2012. malgorithms@github
 #
 # Class for 2D affine transformations.
 # A 2D affine transformation of a point P is

@@ -1,6 +1,4 @@
 affine = require './affine'
-vector = require './vector'
-
 class polygon
 
   constructor: (vertices) ->
@@ -17,7 +15,7 @@ class polygon
   addVertex: (v) -> @vertices.push v
 
   transform: (aff) ->
-    v.transform aff for v in @vertices
+    aff.transform v for v in @vertices
 
   getXMin: ->
     best = 0
@@ -52,10 +50,10 @@ exports.polygon = polygon
 exports.factory = 
   unitSquare: ->
     new polygon [
-      new vector.vector  0.5,  0.5
-      new vector.vector -0.5,  0.5
-      new vector.vector -0.5, -0.5
-      new vector.vector  0.5, -0.5
+      [ 0.5,  0.5]
+      [-0.5,  0.5]
+      [-0.5, -0.5]
+      [ 0.5, -0.5]
     ]
   unitCircleApprox: (num) ->
     radian_increment = 2.0 * Math.PI / num
@@ -63,5 +61,5 @@ exports.factory =
     p = new polygon()
     for i in [0...num]
       radians += radian_increment
-      p.addVertex new vector.vector(0.5 * Math.cos(radians), 0.5 * Math.sin(radians))
+      p.addVertex [0.5 * Math.cos(radians), 0.5 * Math.sin(radians)]
     p

@@ -12,7 +12,7 @@ npm install -g geom2d
 Usage (CoffeeScript example)
 ============================
 ```
-{affine, vector, polygon} = require 'geom2d'
+{affine, polygon} = require 'geom2d'
 
 rot_left  = new affine.rotation  Math.PI / 4
 rot_right = new affine.rotation -Math.PI / 4

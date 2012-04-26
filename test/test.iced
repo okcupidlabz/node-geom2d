@@ -1,6 +1,5 @@
 affine  = require '../src/affine'
 polygon = require '../src/polygon'
-vector  = require '../src/vector'
 
 #
 # TODO: Put some good tests in here

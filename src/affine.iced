@@ -76,30 +76,20 @@ class affine2d
     t1 = @m10 * v0 + @m11 * v1 + @v1
     [t0, t1]
 
-  transformVector: (v) ->
-    # takes a vector class obj as a param
-    v.transform @
-
-  leftComposeWith: (a) ->
-    ###
-    destructively edits @, and produces composition of @(a)
-    ###
-    t_m10 = @m00 * a.m10 + @m10 * a.m11
-    t_m11 = @m01 * a.m10 + @m11 * a.m11
-    t_v1  = @v0  * a.m10 + @v1  * a.m11 + a.v1
-    t_m00 = @m00 * a.m00 + @m10 * a.m01
-    t_m01 = @m01 * a.m00 + @m11 * a.m01
-    t_v0  = @v0  * a.m00 + @v1  * a.m01 + a.v0
-    @m00  = t_m00
-    @m01  = t_m01
-    @m10  = t_m10
-    @m11  = t_m11
-    @v0   = t_v0
-    @v1   = t_v1
+  transformVec: (a) ->
+    # transforms a 2-item array in place
+    t0 = @m00 * a[0] + @m01 * a[1] + @v0
+    t1 = @m10 * a[0] + @m11 * a[1] + @v1
+    a[0] = t0
+    a[1] = t1
 
   rightComposeWith: (a) ->
     ###
-    destructively edits @, and produces composition a(@)
+    Typically when you have an affine A and you want to 
+    perform another affine on it, use this.
+    In other words:
+      A.rightComposeWith(B)
+      performs the composition B(A) and replaces A with the results.    
     ###
     t_m10 = a.m00 * @m10 + a.m10 * @m11
     t_m11 = a.m01 * @m10 + a.m11 * @m11
@@ -107,6 +97,24 @@ class affine2d
     t_m00 = a.m00 * @m00 + a.m10 * @m01
     t_m01 = a.m01 * @m00 + a.m11 * @m01
     t_v0  = a.v0  * @m00 + a.v1  * @m01 + @v0
+    @m00  = t_m00
+    @m01  = t_m01
+    @m10  = t_m10
+    @m11  = t_m11
+    @v0   = t_v0
+    @v1   = t_v1
+
+  leftComposeWith: (a) ->
+    ###
+    A.leftComposeWith(B)
+    performs the composition A(B) and replaces A with the results
+    ###
+    t_m10 = @m00 * a.m10 + @m10 * a.m11
+    t_m11 = @m01 * a.m10 + @m11 * a.m11
+    t_v1  = @v0  * a.m10 + @v1  * a.m11 + a.v1
+    t_m00 = @m00 * a.m00 + @m10 * a.m01
+    t_m01 = @m01 * a.m00 + @m11 * a.m01
+    t_v0  = @v0  * a.m00 + @v1  * a.m01 + a.v0
     @m00  = t_m00
     @m01  = t_m01
     @m10  = t_m10

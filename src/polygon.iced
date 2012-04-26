@@ -17,33 +17,24 @@ class polygon
   transform: (aff) ->
     aff.transformVec v for v in @vertices
 
-  getXMin: ->
-    best = 0
+  getBoundingRectangle: ->
+    ###
+    returns a pair of pairs; 
+    for example: [[1,2],[3,5]] 
+    means that  1 <= x <= 3
+            and 2 <= y <= 5
+    for all points 
+    ###
+    x = null
     for v,i in @vertices
-      if (i is 0) or v.v0 < best
-        best = v.v0
-    best
-
-  getXMax: ->
-    best = 0
-    for v,i in @vertices
-      if (i is 0) or v.v0 > best
-        best = v.v0
-    best
-
-  getYMin: ->
-    best = 0
-    for v,i in @vertices
-      if (i is 0) or v.v1 < best
-        best = v.v1
-    best
-
-  getYMax: ->
-    best = 0
-    for v,i in @vertices
-      if (i is 0) or v.v1 > best
-        best = v.v1
-    best
+      if (i is 0)
+        x = [[v[0],v[1]],[v[0],v[1]]]
+      else
+        if v[0] < x[0][0] then x[0][0] = v[0]
+        if v[0] > x[1][0] then x[1][0] = v[0]
+        if v[1] < x[0][1] then x[0][1] = v[1]
+        if v[1] > x[1][1] then x[1][1] = v[1]
+    x
 
 exports.polygon = polygon
 

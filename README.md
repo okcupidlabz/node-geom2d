@@ -1,4 +1,3 @@
-
 Explanation
 ============
 A very alpha version of a nodejs module for doing affine transformations and (coming soon) other simple transformations

@@ -1,5 +1,13 @@
 
+Installation
+============
+```
+	npm install -g geom2d
+```
 
+Usage
+=============
+Coming soon.
 
 
 Contributing

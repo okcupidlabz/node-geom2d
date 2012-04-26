@@ -3,7 +3,7 @@ fs = require 'fs'
 obj = 
   name:         "geom2d"
   description:  """A library for basic 2D affine transformations; will likely add other little items"""
-  version:      "0.0.2"
+  version:      "0.0.3"
   directories:  {"lib" : "./lib"}
   main:         "index.js"
   author:       "Chris Coyne <ccoyne77@gmail.com>"

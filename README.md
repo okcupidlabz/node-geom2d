@@ -1,4 +1,9 @@
 
+Explanation
+============
+A very alpha version of a module for doing affine transformations and (coming soon) other simple transformations
+I need for a bigger project. My first node module. Written in iced-coffee-script.
+
 Installation
 ============
 ```
@@ -26,7 +31,6 @@ square = polygon.factory.unitSquare()
 square.transform do_nothing
 
 console.log square
-
 ```
 
 

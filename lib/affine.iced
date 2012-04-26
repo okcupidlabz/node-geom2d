@@ -58,6 +58,16 @@ class affine2d
       @v0  = args[4]
       @v1  = args[5]
 
+  oneLineSummary: ->
+    "M = [#{@m00.toPrecision(3)}" +
+      " #{@m01.toPrecision(3)}" +
+      " #{@m10.toPrecision(3)}" +
+      " #{@m11.toPrecision(3)}]   V = (" +
+       "#{@v0.toPrecision(3)}, " +
+      " #{@v1.toPrecision(3)})   scale = " +
+      @getXScale().toPrecision(3) + " x " + 
+      @getYScale().toPrecision(3)
+
   copy: -> new affine2d @
 
   transformPair: (v0, v1) ->
@@ -111,8 +121,6 @@ class affine2d
 
 class rotation extends affine2d
   constructor: (r) ->
-    console.log r
-    console.log Math.cos(r)
     super Math.cos(r), -Math.sin(r), Math.sin(r), Math.cos(r), 0, 0
 
 class scaling extends affine2d

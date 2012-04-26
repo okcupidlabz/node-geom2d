@@ -1,6 +1,6 @@
-affine  = require '../lib/affine'
-polygon = require '../lib/polygon'
-vector  = require '../lib/vector'
+affine  = require '../src/affine'
+polygon = require '../src/polygon'
+vector  = require '../src/vector'
 
 #
 # TODO: Put some good tests in here

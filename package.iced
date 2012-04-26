@@ -9,7 +9,7 @@ obj =
   author:       "Chris Coyne <ccoyne77@gmail.com>"
   repository:
     type: "git"
-    url:  "http://github.com/malgorithms/node-geom2d"
+    url:  "http://github.com/okcupid/node-geom2d"
   devDependencies:
     "iced-coffee-script" : "1.3.1a"
   scripts:
@@ -17,7 +17,7 @@ obj =
   licenses: [
     {
       type: "MIT"
-      url:  "http://github.com/malgorithms/node-geom2d/raw/master/LICENSE"
+      url:  "http://github.com/okcupid/node-geom2d/raw/master/LICENSE"
     }
   ]
 

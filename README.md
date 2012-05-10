@@ -5,7 +5,7 @@ I need for a bigger project. My first node module. Written in IcedCoffeeScript.
 
 Browser Use
 ===========
-```javascript
+```html
 <script src="geom2d.js"></script>
 <script>
  var affine  = require('affine');

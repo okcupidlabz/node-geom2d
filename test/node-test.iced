@@ -1,7 +1,5 @@
-# affine  = require('../geom2d').require 'affine'
-# polygon = require('../geom2d').require 'polygon'
-#affine  = require '../src/affine'
-#polygon = require '../src/polygon'
+affine  = require '../src/affine'
+polygon = require '../src/polygon'
 
 #
 # TODO: Put some good tests in here

@@ -13,8 +13,8 @@ obj =
   devDependencies:
     "iced-coffee-script" : "1.3.1a"
     "stitch" : "0.3.3"
-  scripts:
-    "preinstall" : "cake build"
+  #scripts:
+  #  "preinstall" : "cake build"
   licenses: [
     {
       type: "MIT"

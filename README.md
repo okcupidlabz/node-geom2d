@@ -19,18 +19,20 @@ For your convenience, this project is stitched into one JS file, `geom2d.js`. Th
  var go_big    = new affine.scaling (  2,   4);
  var go_small  = new affine.scaling (  0.5, 0.25);
  
- var do_nothing = rot_left.copy();
- do_nothing.rightComposeWith(rot_right);
- do_nothing.rightComposeWith(go_big);
- do_nothing.rightComposeWith(go_small);
+ var t = rot_left.copy();
+ // rightComposing a transform A with another, A'
+ // desctructively replaces A with A'(A)
+ t.rightComposeWith(rot_right);
+ t.rightComposeWith(go_big);
+ t.rightComposeWith(go_small);
  
  var square = polygon.factory.unitSquare();
  
  document.write("<h3>Square before</h3>");
  document.write(JSON.stringify(square));
  
- document.write("<h3>Square after</h3>");
- square.transform(do_nothing);
+ document.write("<h3>Square after (should be the same)</h3>");
+ square.transform(t);
  document.write(JSON.stringify(square));
 </script>
 ```
@@ -51,16 +53,19 @@ rot_right = new affine.rotation -Math.PI / 4
 go_big    = new affine.scaling   2,   4
 go_small  = new affine.scaling   0.5, 0.25
 
-# 4 compositions that should net nothing
-# --------------------------------------
-do_nothing = rot_left.copy()
-do_nothing.rightComposeWith rot_right
-do_nothing.rightComposeWith go_big
-do_nothing.rightComposeWith go_small
+
+# rightComposing a transform A with another, A'
+# desctructively replaces A with A'(A)
+t = rot_left.copy()
+t.rightComposeWith rot_right
+t.rightComposeWith go_big
+t.rightComposeWith go_small
 
 square = polygon.factory.unitSquare()
-square.transform do_nothing
+square.transform t
 
+# square should be the same, as the 4 affines 
+# cancel each other out.
 console.log square
 ```
 

@@ -3,7 +3,7 @@ fs = require 'fs'
 obj = 
   name:         "geom2d"
   description:  """A library for basic 2D affine transformations; will likely add other little items"""
-  version:      "0.0.3"
+  version:      "0.0.4"
   directories:  {"lib" : "./lib"}
   main:         "index.js"
   author:       "Chris Coyne <ccoyne77@gmail.com>"
@@ -12,6 +12,7 @@ obj =
     url:  "http://github.com/okcupid/node-geom2d"
   devDependencies:
     "iced-coffee-script" : "1.3.1a"
+    "stitch" : "0.3.3"
   scripts:
     "preinstall" : "cake build"
   licenses: [

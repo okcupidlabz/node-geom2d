@@ -5,7 +5,7 @@ I need for a bigger project. My first node module. Written in IcedCoffeeScript.
 
 Browser Use
 ===========
-```
+```javascript
 <script src="geom2d.js"></script>
 <script>
  var affine  = require('affine');
@@ -40,7 +40,7 @@ npm install -g geom2d
 
 Usage (CoffeeScript example)
 ============================
-```
+```coffeescript
 {affine, polygon} = require 'geom2d'
 
 rot_left  = new affine.rotation  Math.PI / 4

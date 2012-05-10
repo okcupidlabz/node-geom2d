@@ -1,10 +1,13 @@
 Explanation
 ============
 A very alpha version of a JS Library for doing affine transformations and (coming soon) other simple transformations
-I need for a bigger project. My first node module. Written in IcedCoffeeScript.
+I need for a bigger project. My first node module. Written in IcedCoffeeScript. `affine` and `polygon` are currently the two big exports.
 
 Browser Use
 ===========
+For your convenience, this project is stitched into one JS file, `geom2d.js`. The stitched file provides a way of requiring components. Here's an example:
+
+
 ```html
 <script src="geom2d.js"></script>
 <script>

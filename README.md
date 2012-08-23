@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/okcupid/node-geom2d.png)](http://travis-ci.org/okcupid/node-geom2d)
 Explanation
 ============
 A very alpha version of a JS Library for doing affine transformations and (coming soon) other simple transformations
